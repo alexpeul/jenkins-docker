@@ -19,7 +19,8 @@ RUN apt-get update && \
       stable" && \
    apt-get update && \
    apt-get -y install docker-ce && \
-   usermod -aG docker jenkins
+   usermod -aG docker jenkins && \
+   chown root.docker /var/run/docker.sock
 
 # drop back to the regular jenkins user - good practice
 USER jenkins
